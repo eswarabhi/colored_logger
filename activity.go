@@ -43,9 +43,11 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
+  var ctx = fmt.Sprintf("%+v",context)
+  activityLog.Debug(ctx)
+
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
-  activityLog.Info(message)
 	flowInfo, _ := toBool(context.GetInput(ivFlowInfo))
 	addToFlow, _ := toBool(context.GetInput(ivAddToFlow))
 
