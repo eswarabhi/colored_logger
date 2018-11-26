@@ -1,11 +1,11 @@
 {
-  "name": "tibco-log",
+  "name": "ea-colored-log",
   "type": "flogo:activity",
   "ref": "github.com/eswarabhi/colored_logger",
   "version": "0.0.1",
-  "title": "Colored Log Message",
-  "description": "Simple Log Activity",
-  "homepage": "https://github.com/TIBCOSoftware/flogo-contrib/tree/master/activity/log",
+  "title": "ea-Colored Log Message",
+  "description": "ea-Simple Log Activity",
+  "homepage": "https://github.com/eswarabhi/colored_logger/tree/master",
   "input":[
     {
       "name": "message",
