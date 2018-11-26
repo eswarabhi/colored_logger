@@ -51,8 +51,7 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
-  colored := fmt.Sprintf(InfoColor, "Info")
-  activityLog.Info(colored)
+  activityLog.Infof("\033[1;31m%s\033[0m","ErrorColor")
 
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
