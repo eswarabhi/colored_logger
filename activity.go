@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
+  "github.com/fatih/color"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
@@ -43,9 +44,6 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
-  var ctx = fmt.Sprintf("%+v",context)
-  activityLog.Info(ctx)
-
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
 	flowInfo, _ := toBool(context.GetInput(ivFlowInfo))
@@ -55,8 +53,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	if flowInfo {
 
-		msg = fmt.Sprintf("'%s' - FlowInstanceID [%s], Flow [%s], Task [%s]", msg,
-			context.ActivityHost().ID(), context.ActivityHost().Name(), context.Name())
+		msg = fmt.Sprintf("'%s'", green(msg))
 	}
 
 	activityLog.Info(msg)
