@@ -44,7 +44,7 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
   var ctx = fmt.Sprintf("%+v",context)
-  activityLog.Debug(ctx)
+  activityLog.Info(ctx)
 
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
