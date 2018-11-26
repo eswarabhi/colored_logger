@@ -45,7 +45,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
-
+  activityLog.Info(message)
 	flowInfo, _ := toBool(context.GetInput(ivFlowInfo))
 	addToFlow, _ := toBool(context.GetInput(ivAddToFlow))
 
