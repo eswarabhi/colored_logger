@@ -51,6 +51,11 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
+  activityLog.loggerImpl.SetFormatter(&activityLog.loggerImpl.TextFormatter{
+		DisableColors: false,
+		FullTimestamp: true,
+	})
+
   activityLog.Infof("\033[1;31m%s\033[0m","ErrorColor")
 
 	//mv := context.GetInput(ivMessage)
