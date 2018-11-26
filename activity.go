@@ -43,7 +43,7 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
-
+	yellow := New(FgYellow).SprintFunc()
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
 	flowInfo, _ := toBool(context.GetInput(ivFlowInfo))
@@ -53,7 +53,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	if flowInfo {
 
-		msg = fmt.Sprintf("'%s'", Green(msg))
+		msg = fmt.Sprintf("'%s'", yellow(msg))
 	}
 
 	activityLog.Info(msg)
