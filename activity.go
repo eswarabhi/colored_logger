@@ -1,33 +1,47 @@
-package colored_logger
+package log
 
-import(
-  "fmt"
-  "strconv"
+import (
+	"fmt"
+	"strconv"
 
-  "github.com/TIBCOSoftware/flogo-lib/core/activity"
-  "github.com/TIBCOSoftware/flogo-lib/logger"
+	"github.com/TIBCOSoftware/flogo-lib/core/activity"
+	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
 
-var activityLog = logger.GetLogger("abhi-colored-logger")
+// activityLog is the default logger for the Log Activity
+var activityLog = logger.GetLogger("activity-flogo-log")
+
+const (
+	ivMessage   = "message"
+	ivFlowInfo  = "flowInfo"
+	ivAddToFlow = "addToFlow"
+
+	ovMessage = "message"
+)
 
 func init() {
-  activityLog.SetLogLevel(logger.InfoLevel)
+	activityLog.SetLogLevel(logger.InfoLevel)
 }
 
-type CLogActivity struct {
-  metadata *activity.Metadata
+// LogActivity is an Activity that is used to log a message to the console
+// inputs : {message, flowInfo}
+// outputs: none
+type LogActivity struct {
+	metadata *activity.Metadata
 }
 
+// NewActivity creates a new AppActivity
 func NewActivity(metadata *activity.Metadata) activity.Activity {
-	return &CLogActivity{metadata: metadata}
+	return &LogActivity{metadata: metadata}
 }
 
-func (a *CLogActivity) Metadata() *activity.Metadata {
+// Metadata returns the activity's metadata
+func (a *LogActivity) Metadata() *activity.Metadata {
 	return a.metadata
 }
 
 // Eval implements api.Activity.Eval - Logs the Message
-func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
+func (a *LogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
