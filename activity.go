@@ -53,7 +53,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	if flowInfo {
 
-		msg = fmt.Sprintf("'%s'", yellow(msg))
+		msg = color.Cyan("Prints text in cyan.")
 	}
 
 	activityLog.Info(msg)
