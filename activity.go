@@ -54,7 +54,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
   colored := fmt.Sprintf(InfoColor, "Info")
   activityLog.Info(colored)
-  
+
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
 	flowInfo, _ := toBool(context.GetInput(ivFlowInfo))
