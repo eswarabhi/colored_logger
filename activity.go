@@ -1,4 +1,4 @@
-package log
+package colored_log
 
 import (
 	"fmt"
