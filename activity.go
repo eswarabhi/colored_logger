@@ -20,6 +20,14 @@ const (
 	ovMessage = "message"
 )
 
+const (
+        InfoColor    = "\033[1;34m%s\033[0m"
+        NoticeColor  = "\033[1;36m%s\033[0m"
+        WarningColor = "\033[1;33m%s\033[0m"
+        ErrorColor   = "\033[1;31m%s\033[0m"
+        DebugColor   = "\033[0;36m%s\033[0m"
+)
+
 func init() {
 	activityLog.SetLogLevel(logger.InfoLevel)
 }
@@ -44,6 +52,9 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
+  colored := fmt.Sprintf(InfoColor, "Info")
+  activityLog.Info(colored)
+  
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
 	flowInfo, _ := toBool(context.GetInput(ivFlowInfo))
@@ -52,8 +63,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 	msg := message
 
 	if flowInfo {
-
-		msg = fmt.Sprintf("'%s'", green(msg))
+		msg = fmt.Sprintf("'%s'", msg)
 	}
 
 	activityLog.Info(msg)
