@@ -7,10 +7,12 @@ import (
 	"github.com/fatih/color"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
+	Clog "github.com/sirupsen/logrus"
 )
 
 // activityLog is the default logger for the Log Activity
 var activityLog = logger.GetLogger("activity-flogo-colored-log")
+var myTextFormatter log.Formatter = new(TextFormatter)
 
 const (
 	ivMessage   = "message"
@@ -44,9 +46,10 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
-	color.Cyan("Prints text in cyan.")
-  activityLog.Infof("\033[1;31m%s\033[0m","ErrorColor")
+	myTextFormatter.DisableColors = false
+	myTextFormatter.FullTimestamp = true
 
+	Clog.SetFormatter(myTextFormatter)
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
 	flowInfo, _ := toBool(context.GetInput(ivFlowInfo))
