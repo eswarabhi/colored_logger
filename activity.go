@@ -5,10 +5,10 @@ import (
 	"strconv"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-// 	"github.com/sirupsen/logrus"
+	cLogrus "github.com/sirupsen/logrus"
 )
 
-// var logImpl = logrus.New()
+var clogImpl = cLogrus.New()
 
 const (
 	ivMessage   = "message"
@@ -41,12 +41,12 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
-// 	logImpl.Formatter = &logrus.TextFormatter{
-// 			DisableColors: false,
-// 			FullTimestamp: true,
-// 	}
+	clogImpl.Formatter = &cLogrus.TextFormatter{
+			DisableColors: false,
+			FullTimestamp: true,
+	}
 
-//   logImpl.Infof("\033[1;31m%s\033[0m","ErrorColor")
+  clogImpl.Infof("\033[1;31m%s\033[0m","ErrorColor")
 
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
