@@ -5,12 +5,14 @@ import (
 	"strconv"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/TIBCOSoftware/flogo-lib/logger"
 	"github.com/sirupsen/logrus"
 )
 
-// activityLog is the default logger for the Log Activity
-var activityLog = logger.GetLogger("activity-flogo-colored-log")
+var logImpl = logrus.New()
+logImpl.Formatter = &TextFormatter{
+		DisableColors: false,
+		FullTimestamp: true,
+}
 
 const (
 	ivMessage   = "message"
@@ -21,7 +23,7 @@ const (
 )
 
 func init() {
-	activityLog.SetLogLevel(logger.InfoLevel)
+	// activityLog.SetLogLevel(logger.InfoLevel)
 }
 
 // LogActivity is an Activity that is used to log a message to the console
@@ -44,13 +46,8 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
-	activityLog.loggerImpl.Formatter = &logrus.TextFormatter{
-		DisableColors: false,
-		FullTimestamp: true,
-	}
 
-
-  activityLog.Infof("\033[1;31m%s\033[0m","ErrorColor")
+  logImpl.Infof("\033[1;31m%s\033[0m","ErrorColor")
 
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
@@ -63,7 +60,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 		msg = fmt.Sprintf("'%s'", msg)
 	}
 
-	activityLog.Info(msg)
+	// activityLog.Info(msg)
 
 	if addToFlow {
 		context.SetOutput(ovMessage, msg)
