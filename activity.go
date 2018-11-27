@@ -12,7 +12,7 @@ import (
 
 // activityLog is the default logger for the Log Activity
 var activityLog = logger.GetLogger("activity-flogo-colored-log")
-var myTextFormatter log.Formatter = new(TextFormatter)
+var myTextFormatter Clog.Formatter = new(Clog.TextFormatter)
 
 const (
 	ivMessage   = "message"
