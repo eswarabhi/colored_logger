@@ -41,7 +41,7 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
-	logImpl.Formatter = &TextFormatter{
+	logImpl.Formatter = &logImpl.TextFormatter{
 			DisableColors: false,
 			FullTimestamp: true,
 	}
