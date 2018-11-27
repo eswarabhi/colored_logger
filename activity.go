@@ -11,7 +11,7 @@ import (
 
 // activityLog is the default logger for the Log Activity
 var activityLog = logger.GetLogger("activity-flogo-colored-log")
-formatter := new(logrus.TextFormatter)
+var formatter = new(logrus.TextFormatter)
 
 const (
 	ivMessage   = "message"
