@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/fatih/color"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
 	"github.com/sirupsen/logrus"
@@ -12,7 +11,7 @@ import (
 
 // activityLog is the default logger for the Log Activity
 var activityLog = logger.GetLogger("activity-flogo-colored-log")
-var formatter logrus.Formatter = new(logrus.TextFormatter)
+formatter := new(logrus.TextFormatter)
 
 const (
 	ivMessage   = "message"
