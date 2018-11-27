@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
+	"github.com/fatih/color"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
@@ -17,14 +18,6 @@ const (
 	ivAddToFlow = "addToFlow"
 
 	ovMessage = "message"
-)
-
-const (
-        InfoColor    = "\033[1;34m%s\033[0m"
-        NoticeColor  = "\033[1;36m%s\033[0m"
-        WarningColor = "\033[1;33m%s\033[0m"
-        ErrorColor   = "\033[1;31m%s\033[0m"
-        DebugColor   = "\033[0;36m%s\033[0m"
 )
 
 func init() {
@@ -51,12 +44,7 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
-  fmt.Printf("%+v, type: %T", activityLog, activityLog)
-  // activityLog.loggerImpl.SetFormatter(&activityLog.loggerImpl.TextFormatter{
-	// 	DisableColors: false,
-	// 	FullTimestamp: true,
-	// })
-
+	color.Cyan("Prints text in cyan.")
   activityLog.Infof("\033[1;31m%s\033[0m","ErrorColor")
 
 	//mv := context.GetInput(ivMessage)
