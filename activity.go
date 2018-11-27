@@ -11,7 +11,6 @@ import (
 
 // activityLog is the default logger for the Log Activity
 var activityLog = logger.GetLogger("activity-flogo-colored-log")
-var formatter = new(logrus.TextFormatter)
 
 const (
 	ivMessage   = "message"
@@ -45,11 +44,13 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
-	formatter.DisableColors = false
-	formatter.FullTimestamp = true
-	logrus.SetFormatter(formatter)
+	activityLog.loggerImpl.Formatter = &logrus.TextFormatter{
+		DisableColors: false,
+		FullTimestamp: true,
+	}
 
-  logrus.Infof("\033[1;31m%s\033[0m","ErrorColor")
+
+  activityLog.Infof("\033[1;31m%s\033[0m","ErrorColor")
 
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
