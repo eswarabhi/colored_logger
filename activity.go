@@ -9,10 +9,6 @@ import (
 )
 
 var logImpl = logrus.New()
-logImpl.Formatter = &TextFormatter{
-		DisableColors: false,
-		FullTimestamp: true,
-}
 
 const (
 	ivMessage   = "message"
@@ -45,7 +41,10 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
-
+	logImpl.Formatter = &TextFormatter{
+			DisableColors: false,
+			FullTimestamp: true,
+	}
 
   logImpl.Infof("\033[1;31m%s\033[0m","ErrorColor")
 
