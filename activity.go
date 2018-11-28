@@ -8,7 +8,6 @@ import (
 	"github.com/eswarabhi/myLogger"
 )
 
-var logImpl = logrus.New()
 
 const (
 	ivMessage   = "message"
