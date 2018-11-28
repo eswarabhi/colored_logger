@@ -8,6 +8,8 @@ import (
 	"github.com/eswarabhi/myLogger/logger"
 )
 
+// activityLog is the default logger for the Log Activity
+var activityLog = logger.GetLogger("activity-flogo-log")
 
 const (
 	ivMessage   = "message"
@@ -18,7 +20,7 @@ const (
 )
 
 func init() {
-	// activityLog.SetLogLevel(logger.InfoLevel)
+	activityLog.SetLogLevel(logger.InfoLevel)
 }
 
 // LogActivity is an Activity that is used to log a message to the console
