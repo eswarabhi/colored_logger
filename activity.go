@@ -5,7 +5,8 @@ import (
 	"strconv"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/eswarabhi/myLogger/logger"
+		"github.com/TIBCOSoftware/flogo-lib/logger"
+	// "github.com/eswarabhi/myLogger/logger"
 )
 
 // activityLog is the default logger for the Log Activity
