@@ -5,7 +5,7 @@ import (
 	"strconv"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/eswarabhi/myLogger"
+	"github.com/eswarabhi/myLogger/logger"
 )
 
 
