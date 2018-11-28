@@ -5,12 +5,12 @@ import (
 	"strconv"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-		"github.com/TIBCOSoftware/flogo-lib/logger"
-	// "github.com/eswarabhi/myLogger/logger"
+	"github.com/TIBCOSoftware/flogo-lib/logger"
+	"github.com/sirupsen/logrus"
 )
 
 // activityLog is the default logger for the Log Activity
-var activityLog = logger.GetLogger("activity-flogo-log")
+var activityLog  DefaultLogger = logger.GetLogger("activity-flogo-log")
 
 const (
 	ivMessage   = "message"
@@ -44,6 +44,11 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
+	activityLog.loggerImpl.Formatter = &logrus.TextFormatter{
+		DisableColors: false,
+		FullTimestamp: true,
+	}
+
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
 	flowInfo, _ := toBool(context.GetInput(ivFlowInfo))
@@ -56,7 +61,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 			context.ActivityHost().ID(), context.ActivityHost().Name(), context.Name())
 	}
 
-	// activityLog.Info(msg)
+	activityLog.Info(msg)
 
 	if addToFlow {
 		context.SetOutput(ovMessage, msg)
