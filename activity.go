@@ -5,7 +5,7 @@ import (
 	"strconv"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/sirupsen/logrus"
+	"github.com/eswarabhi/myLogger"
 )
 
 var logImpl = logrus.New()
@@ -41,12 +41,6 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
-	logImpl.Formatter = &TextFormatter{
-			DisableColors: false,
-			FullTimestamp: true,
-	}
-
-  logImpl.Infof("\033[1;31m%s\033[0m","ErrorColor")
 
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
@@ -56,7 +50,8 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 	msg := message
 
 	if flowInfo {
-		msg = fmt.Sprintf("'%s'", msg)
+		msg = fmt.Sprintf("'%s' - FlowInstanceID [%s], Flow [%s], Task [%s]", msg,
+			context.ActivityHost().ID(), context.ActivityHost().Name(), context.Name())
 	}
 
 	// activityLog.Info(msg)
