@@ -20,7 +20,7 @@ var activityLog = logger.GetLogger("activity-colored_logger")
 
 func init() {
 	activityLog.SetLogLevel(logger.InfoLevel)
-	dbg := fmt.Sprintf("%+v", *activityLog).(string)
+	dbg := fmt.Sprintf("%T", activityLog)
 	activityLog.Info(dbg)
 }
 
