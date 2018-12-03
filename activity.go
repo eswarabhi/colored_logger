@@ -52,7 +52,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 	msg = fmt.Sprintf("'%s' - FlowInstanceID [%s], Flow [%s], Task [%s]", msg,
 			context.ActivityHost().ID(), context.ActivityHost().Name(), context.Name())
 
-	log.Debug(msg)
+	activityLog.Debug(msg)
 
 
 	context.SetOutput(ovMessage, msg)
