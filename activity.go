@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/eswarabhi/myLogger/logger"
+	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
 
 const (
