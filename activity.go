@@ -42,7 +42,7 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
-	dbg := fmt.Sprintf("%T", *activityLog)
+	dbg := fmt.Sprintf("%T", activityLog.loggerImpl)
 	
 	activityLog.Info(dbg)
 	//mv := context.GetInput(ivMessage)
