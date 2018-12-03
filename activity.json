@@ -11,6 +11,16 @@
       "name": "message",
       "type": "string",
       "value": ""
+    },
+    {
+      "name": "flowInfo",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "addToFlow",
+      "type": "boolean",
+      "value": false
     }
   ],
   "output": [
