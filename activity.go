@@ -2,10 +2,15 @@ package colored_logger
 
 import (
 	"fmt"
-
+// 	 "io"
+// 	 "io/ioutil"
+// 	 "log"
+// 	 "os"
+	
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
+
 
 const (
 	ivMessage   = "message"
