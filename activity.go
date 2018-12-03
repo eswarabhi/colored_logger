@@ -1,7 +1,6 @@
 
 import (
 	"fmt"
-	"strconv"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 )
