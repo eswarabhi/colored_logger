@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/eswarabhi/myLogger/clogger"
+	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
 
 const (
@@ -16,7 +16,7 @@ const (
 )
 
 // activityLog is the default logger for the Log Activity
-var activityLog = clogger.GetLogger("activity-colored_logger")
+var activityLog = logger.GetLogger("activity-colored_logger")
 
 func init() {
 	activityLog.SetLogLevel(logger.InfoLevel)
