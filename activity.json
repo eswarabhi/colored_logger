@@ -2,7 +2,7 @@
   "name": "ea-colored-log",
   "type": "flogo:activity",
   "ref": "github.com/eswarabhi/colored_logger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "title": "ea-Colored Log Message",
   "description": "ea-Simple Log Activity",
   "homepage": "https://github.com/eswarabhi/colored_logger/tree/master",
@@ -11,16 +11,6 @@
       "name": "message",
       "type": "string",
       "value": ""
-    },
-    {
-      "name": "flowInfo",
-      "type": "boolean",
-      "value": false
-    },
-    {
-      "name": "addToFlow",
-      "type": "boolean",
-      "value": false
     }
   ],
   "output": [
