@@ -19,7 +19,6 @@ const (
 )
 
 func init() {
-	activityLog.SetLogLevel(logger.InfoLevel)
 }
 
 // LogActivity is an Activity that is used to log a message to the console
@@ -53,7 +52,6 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 			context.ActivityHost().ID(), context.ActivityHost().Name(), context.Name())
 
 
-	activityLog.Info(msg)
 
 	context.SetOutput(ovMessage, msg)
 
