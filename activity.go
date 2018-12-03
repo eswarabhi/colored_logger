@@ -4,11 +4,7 @@ import (
 	"fmt"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
-
-// activityLog is the default logger for the Log Activity
-var activityLog = logger.GetLogger("activity-flogo-log")
 
 const (
 	ivMessage   = "message"
