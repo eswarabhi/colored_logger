@@ -20,8 +20,7 @@ var activityLog = logger.GetLogger("activity-colored_logger")
 
 func init() {
 	activityLog.SetLogLevel(logger.InfoLevel)
-// 	dbg := fmt.Sprintf("%T", activityLog)
-	activityLog.Info(activityLog.GetLogLevel())
+
 }
 
 // LogActivity is an Activity that is used to log a message to the console
@@ -43,7 +42,10 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
-
+	dbg := fmt.Sprintf("%T", activityLog)
+	
+	activityLog.Info(dbg)
+	activityLog.Info(activityLog.GetLogLevel())
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
 
