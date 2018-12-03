@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/TIBCOSoftware/flogo-lib/logger"
+	"github.com/eswarabhi/myLogger/clogger"
 )
 
 const (
@@ -16,7 +16,7 @@ const (
 )
 
 // activityLog is the default logger for the Log Activity
-var activityLog = logger.GetLogger("activity-colored_logger")
+var activityLog = clogger.GetLogger("activity-colored_logger")
 
 func init() {
 	activityLog.SetLogLevel(logger.InfoLevel)
@@ -42,9 +42,7 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
-	dbg := fmt.Sprintf("%T", activityLog.loggerName)
-	
-	activityLog.Info(dbg)
+
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
 
