@@ -21,7 +21,7 @@ var activityLog = logger.GetLogger("activity-colored_logger")
 func init() {
 	activityLog.SetLogLevel(logger.InfoLevel)
 	dbg := fmt.Sprintf("%T", activityLog)
-	activityLog.Info(dbg)
+	activityLog.Info(activityLog.GetLogLevel())
 }
 
 // LogActivity is an Activity that is used to log a message to the console
