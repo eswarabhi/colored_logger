@@ -1,5 +1,5 @@
-package colored_logger
 
+<<<<<<< HEAD
 import (
 	"fmt"
 	"strconv"
@@ -34,3 +34,5 @@ func (a *LogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	return true, nil
 }
+=======
+>>>>>>> 569e46843c076adc25568a0f80c3242f41d32345
