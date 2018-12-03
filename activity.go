@@ -21,7 +21,7 @@ var activityLog = logger.GetLogger("activity-colored_logger")
 func init() {
 	activityLog.SetLogLevel(logger.InfoLevel)
 	dbg := fmt.Sprintf("%+v",activityLog)
-	logger.Info(dbg)
+	activityLog.Info(dbg)
 }
 
 // LogActivity is an Activity that is used to log a message to the console
@@ -54,7 +54,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 	msg = fmt.Sprintf("'%s' - FlowInstanceID [%s], Flow [%s], Task [%s]", msg,
 			context.ActivityHost().ID(), context.ActivityHost().Name(), context.Name())
 
-	activityLog.Debug(msg)
+	activityLog.Info(msg)
 
 
 	context.SetOutput(ovMessage, msg)
