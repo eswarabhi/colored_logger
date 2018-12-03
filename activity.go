@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
+	"github.com/eswarabhi/myLogger"
 )
 
 const (
@@ -13,6 +14,8 @@ const (
 
 	ovMessage = "message"
 )
+
+var log = myLogger.GetLogger()
 
 func init() {
 }
@@ -47,6 +50,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 	msg = fmt.Sprintf("'%s' - FlowInstanceID [%s], Flow [%s], Task [%s]", msg,
 			context.ActivityHost().ID(), context.ActivityHost().Name(), context.Name())
 
+	log.Debug(msg)
 
 
 	context.SetOutput(ovMessage, msg)
