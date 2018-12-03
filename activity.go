@@ -1,8 +1,7 @@
-package log
+package colored_logger
 
 import (
 	"fmt"
-	"strconv"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
@@ -26,28 +25,26 @@ func init() {
 // LogActivity is an Activity that is used to log a message to the console
 // inputs : {message, flowInfo}
 // outputs: none
-type LogActivity struct {
+type CLogActivity struct {
 	metadata *activity.Metadata
 }
 
 // NewActivity creates a new AppActivity
 func NewActivity(metadata *activity.Metadata) activity.Activity {
-	return &LogActivity{metadata: metadata}
+	return &CLogActivity{metadata: metadata}
 }
 
 // Metadata returns the activity's metadata
-func (a *LogActivity) Metadata() *activity.Metadata {
+func (a *CLogActivity) Metadata() *activity.Metadata {
 	return a.metadata
 }
 
 // Eval implements api.Activity.Eval - Logs the Message
-func (a *LogActivity) Eval(context activity.Context) (done bool, err error) {
+func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
 
-	flowInfo, _ := toBool(context.GetInput(ivFlowInfo))
-	addToFlow, _ := toBool(context.GetInput(ivAddToFlow))
 
 	msg := message
 
@@ -64,25 +61,4 @@ func (a *LogActivity) Eval(context activity.Context) (done bool, err error) {
 	}
 
 	return true, nil
-}
-
-func toBool(val interface{}) (bool, error) {
-
-	b, ok := val.(bool)
-	if !ok {
-		s, ok := val.(string)
-
-		if !ok {
-			return false, fmt.Errorf("unable to convert to boolean")
-		}
-
-		var err error
-		b, err = strconv.ParseBool(s)
-
-		if err != nil {
-			return false, err
-		}
-	}
-
-	return b, nil
 }
