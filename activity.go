@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/eswarabhi/myLogger"
+	"github.com/eswarabhi/myLogger/logger"
 )
 
 const (
@@ -15,9 +15,11 @@ const (
 	ovMessage = "message"
 )
 
-var log = myLogger.GetLogger()
+// activityLog is the default logger for the Log Activity
+var activityLog = logger.GetLogger("activity-colored_logger")
 
 func init() {
+	activityLog.SetLogLevel(logger.InfoLevel)
 }
 
 // LogActivity is an Activity that is used to log a message to the console
