@@ -48,17 +48,15 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	msg := message
 
-	if flowInfo {
 
-		msg = fmt.Sprintf("'%s' - FlowInstanceID [%s], Flow [%s], Task [%s]", msg,
+	msg = fmt.Sprintf("'%s' - FlowInstanceID [%s], Flow [%s], Task [%s]", msg,
 			context.ActivityHost().ID(), context.ActivityHost().Name(), context.Name())
-	}
+
 
 	activityLog.Info(msg)
 
-	if addToFlow {
-		context.SetOutput(ovMessage, msg)
-	}
+	context.SetOutput(ovMessage, msg)
+
 
 	return true, nil
 }
