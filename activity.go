@@ -78,10 +78,10 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 	
 	Init(ioutil.Discard, os.Stdout, os.Stdout, os.Stderr)
 
-	 Trace.Println("I have something standard to say")
-	 Info.Println("Special Information")
-	 Warning.Println("There is something you need to know about")
-	 Error.Println("Something has failed")
+	 Trace.Println("yay!")
+	 Info.Println("yay!")
+	 Warning.Println("yay!")
+	 Error.Println("yay!")
 
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
