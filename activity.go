@@ -13,7 +13,7 @@ import (
 
 )
 
-var log = logrus.New()
+var logr = logrus.New()
 
 var (
     Trace   *log.Logger
@@ -100,7 +100,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	color.Cyan(msg)
 
-	logrus.Info(msg)
+	logr.Info(msg)
 
 
 	context.SetOutput(ovMessage, msg)
