@@ -8,6 +8,7 @@ import (
 	 "os"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
+	"github.com/fatih/color"
 
 )
 
@@ -89,6 +90,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 	msg = fmt.Sprintf("'%s' - FlowInstanceID [%s], Flow [%s], Task [%s]", msg,
 			context.ActivityHost().ID(), context.ActivityHost().Name(), context.Name())
 
+	color.Cyan(msg)
 
 
 	context.SetOutput(ovMessage, msg)
