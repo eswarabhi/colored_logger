@@ -4,7 +4,7 @@
   "ref": "github.com/eswarabhi/colored_logger",
   "version": "0.0.1",
   "title": "Colored Logger",
-  "description": "ea-Simple Log Activity",
+  "description": "Activity that prints colored logs",
   "homepage": "https://github.com/eswarabhi/colored_logger/tree/master",
   "input":[
     {
