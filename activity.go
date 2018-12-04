@@ -94,7 +94,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 	msg := message
 
 
-	msg = fmt.Sprintf(" INFO [%s] - '%s'", context.Name(), msg)
+	msg = fmt.Sprintf("INFO [%s] - '%s'", context.Name(), msg)
 
 	color.Cyan(msg)
 
