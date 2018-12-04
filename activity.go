@@ -75,10 +75,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 		CLog = color.New(color.FgMagenta)
 	}
 
-	dbg := fmt.Sprintf("%T",CLog)
-	color.Cyan(dbg)
-
-
+	CLog.Println(msg)
 
 	context.SetOutput(ovMessage, msg)
 
