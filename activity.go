@@ -22,7 +22,7 @@ const (
 )
 
 var S_level Level = Level{
-	"Trace", "Debug", "Info", "Print", "Warn", "Error", "Fatal"
+	"Trace", "Debug", "Info", "Print", "Warn", "Error", "Fatal",
 }
 
 func init() {
