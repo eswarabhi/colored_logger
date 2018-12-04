@@ -21,6 +21,12 @@
       "name": "addToFlow",
       "type": "boolean",
       "value": false
+    },
+    {
+      "name": "level",
+      "type": "string",
+      "required": true,
+      "allowed" : ["Trace", "Debug", "Info", "Print", "Warn", "Error", "Fatal"]
     }
   ],
   "output": [
