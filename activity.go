@@ -55,6 +55,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
+	addToFlow, _ := toBool(context.GetInput(ivAddToFlow))
 	level, _ := context.GetInput(ivLevel).(string)
 
 	msg := message
@@ -85,4 +86,25 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 	}
 
 	return true, nil
+}
+
+func toBool(val interface{}) (bool, error) {
+
+	b, ok := val.(bool)
+	if !ok {
+		s, ok := val.(string)
+
+		if !ok {
+			return false, fmt.Errorf("unable to convert to boolean")
+		}
+
+		var err error
+		b, err = strconv.ParseBool(s)
+
+		if err != nil {
+			return false, err
+		}
+	}
+
+	return b, nil
 }
