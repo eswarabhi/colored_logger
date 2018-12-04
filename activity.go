@@ -2,6 +2,7 @@ package colored_logger
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/fatih/color"
@@ -50,13 +51,15 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	var CLog *color.Color
 
+	t := time.Now()
+
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
 	level, _ := context.GetInput(ivLevel).(string)
 
 	msg := message
 
-	msg = fmt.Sprintf("%s [%s] - '%s'", level, context.Name(), msg)
+	msg = fmt.Sprintf("%s %s [%s] - '%s'", t.Format("2018-12-04 14:42:33.755"), level, context.Name(), msg)
 
 	switch level {
 	case S_level.Trace:
