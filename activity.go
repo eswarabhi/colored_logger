@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 package colored_logger
 
 import (
@@ -8,9 +6,9 @@ import (
 	 "io/ioutil"
 	 "log"
 	 "os"
-	
+
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/TIBCOSoftware/flogo-lib/logger"
+
 )
 
 var (
@@ -28,8 +26,6 @@ const (
 	ovMessage = "message"
 )
 
-// activityLog is the default logger for the Log Activity
-var activityLog = logger.GetLogger("activity-colored_logger")
 
 func Init(
     traceHandle io.Writer,
@@ -54,7 +50,6 @@ func Init(
         log.Ldate|log.Ltime|log.Lshortfile)
 }
 func init() {
-	activityLog.SetLogLevel(logger.InfoLevel)
 
 }
 
@@ -77,7 +72,7 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
-	
+
 	Init(ioutil.Discard, os.Stdout, os.Stdout, os.Stderr)
 
 	 Trace.Println("yay!")
@@ -94,7 +89,6 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 	msg = fmt.Sprintf("'%s' - FlowInstanceID [%s], Flow [%s], Task [%s]", msg,
 			context.ActivityHost().ID(), context.ActivityHost().Name(), context.Name())
 
-	activityLog.Info(msg)
 
 
 	context.SetOutput(ovMessage, msg)
@@ -102,4 +96,3 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	return true, nil
 }
->>>>>>> e4228dcb7c90b28e09ed472b96659211755cde0d
