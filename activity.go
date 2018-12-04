@@ -9,7 +9,7 @@ import (
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/fatih/color"
-	"github.com/sirupsen/logrus"
+// 	"github.com/sirupsen/logrus"
 
 )
 
@@ -77,10 +77,10 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
-	logrus.SetFormatter(&logrus.TextFormatter{
-		DisableColors: false,
-		FullTimestamp: true,
-	})
+// 	logrus.SetFormatter(&logrus.TextFormatter{
+// 		DisableColors: false,
+// 		FullTimestamp: true,
+// 	})
 
 	Init(ioutil.Discard, os.Stdout, os.Stdout, os.Stderr)
 
@@ -100,7 +100,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	color.Cyan(msg)
 
-	logr.Info(msg)
+// 	logr.Info(msg)
 
 
 	context.SetOutput(ovMessage, msg)
