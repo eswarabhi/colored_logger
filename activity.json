@@ -3,7 +3,7 @@
   "type": "flogo:activity",
   "ref": "github.com/eswarabhi/colored_logger",
   "version": "0.0.1",
-  "title": "ea-Colored Log Message",
+  "title": "Colored Logger",
   "description": "ea-Simple Log Activity",
   "homepage": "https://github.com/eswarabhi/colored_logger/tree/master",
   "input":[
