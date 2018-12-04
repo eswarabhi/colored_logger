@@ -9,15 +9,11 @@ import (
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/fatih/color"
-	"github.com/TIBCOSoftware/flogo-lib/logger"
 // 	"github.com/sirupsen/logrus"
 
 )
 
 // var logr = logrus.New()
-
-// activityLog is the default logger for the Log Activity
-var activityLog = logger.GetLogger("activity-flogo-log")
 
 var (
     Trace   *log.Logger
@@ -58,7 +54,6 @@ func Init(
         log.Ldate|log.Ltime|log.Lshortfile)
 }
 func init() {
-	activityLog.SetLogLevel(logger.InfoLevel)
 }
 
 // LogActivity is an Activity that is used to log a message to the console
@@ -99,18 +94,14 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 	msg := message
 
 
-	msg = fmt.Sprintf("'%s' - FlowInstanceID [%s], Flow [%s], Task [%s]", msg,
-			context.ActivityHost().ID(), context.ActivityHost().Name(), context.Name())
+	msg = fmt.Sprintf("INFO - [%s] - '%s'", msg, context.ActivityHost().Name(), context.Name())
 
 	color.Cyan(msg)
-	logLevel := fmt.Sprintf("%s, %s",activityLog.GetLogLevel(), logger.InfoLevel)
-	color.Cyan(logLevel)
 
 // 	logr.Info(msg)
 
 
 	context.SetOutput(ovMessage, msg)
-
 
 	return true, nil
 }
