@@ -8,6 +8,10 @@ import (
 
 )
 
+type Level struct {
+	Trace, Debug, Info, Print, Warn, Error, Fatal string
+}
+
 const (
 	ivMessage   = "message"
 	ivFlowInfo  = "flowInfo"
@@ -16,6 +20,10 @@ const (
 
 	ovMessage = "message"
 )
+
+var S_level Level = Level{
+	"Trace", "Debug", "Info", "Print", "Warn", "Error", "Fatal"
+}
 
 func init() {
 }
@@ -40,6 +48,7 @@ func (a *CLogActivity) Metadata() *activity.Metadata {
 // Eval implements api.Activity.Eval - Logs the Message
 func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
+	var CLog interface{}
 
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
@@ -47,10 +56,26 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	msg := message
 
-
 	msg = fmt.Sprintf("%s [%s] - '%s'", level, context.Name(), msg)
 
-	color.Cyan(msg)
+	switch level {
+	case S_level.Trace:
+		CLog := color.New(color.FgCyan)
+	case S_level.Debug:
+		CLog := color.New(color.FgBlue)
+	case S_level.Info:
+		CLog := color.New(color.FgGreen)
+	case S_level.Print:
+		CLog := color.New(color.FgWhite)
+	case S_level.Warn:
+		CLog := color.New(color.FgYellow)
+	case S_level.Error:
+		CLog := color.New(color.FgRed)
+	case S_level.Fatal:
+		CLog := color.New(color.FgMagenta)
+	}
+
+	CLog.Println(msg)
 
 
 
