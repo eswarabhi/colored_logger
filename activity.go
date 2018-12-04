@@ -75,7 +75,8 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 		CLog := color.New(color.FgMagenta)
 	}
 
-	CLog.Println(msg)
+	dbg := fmt.Sprintf("%T",CLog)
+	color.Cyan(dbg)
 
 
 
