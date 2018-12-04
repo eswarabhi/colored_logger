@@ -13,7 +13,7 @@ import (
 
 )
 
-var logrus = logrus.New()
+var log = logrus.New()
 
 var (
     Trace   *log.Logger
