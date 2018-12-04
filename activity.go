@@ -3,6 +3,7 @@ package colored_logger
 import (
 	"fmt"
 	"time"
+	"strconv"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/fatih/color"
