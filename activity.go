@@ -103,7 +103,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 			context.ActivityHost().ID(), context.ActivityHost().Name(), context.Name())
 
 	color.Cyan(msg)
-	logLevel := fmt.Sprintf("%v",activityLog.GetLogLevel())
+	logLevel := fmt.Sprintf("%s, %s",activityLog.GetLogLevel(), logger.InfoLevel)
 	color.Cyan(logLevel)
 
 // 	logr.Info(msg)
