@@ -60,19 +60,19 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	switch level {
 	case S_level.Trace:
-		CLog := color.New(color.FgCyan)
+		CLog = color.New(color.FgCyan)
 	case S_level.Debug:
-		CLog := color.New(color.FgBlue)
+		CLog = color.New(color.FgBlue)
 	case S_level.Info:
-		CLog := color.New(color.FgGreen)
+		CLog = color.New(color.FgGreen)
 	case S_level.Print:
-		CLog := color.New(color.FgWhite)
+		CLog = color.New(color.FgWhite)
 	case S_level.Warn:
-		CLog := color.New(color.FgYellow)
+		CLog = color.New(color.FgYellow)
 	case S_level.Error:
-		CLog := color.New(color.FgRed)
+		CLog = color.New(color.FgRed)
 	case S_level.Fatal:
-		CLog := color.New(color.FgMagenta)
+		CLog = color.New(color.FgMagenta)
 	}
 
 	dbg := fmt.Sprintf("%T",CLog)
