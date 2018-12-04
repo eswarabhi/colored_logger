@@ -9,11 +9,15 @@ import (
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/fatih/color"
+	"github.com/TIBCOSoftware/flogo-lib/logger"
 // 	"github.com/sirupsen/logrus"
 
 )
 
-var logr = logrus.New()
+// var logr = logrus.New()
+
+// activityLog is the default logger for the Log Activity
+var activityLog = logger.GetLogger("activity-flogo-log")
 
 var (
     Trace   *log.Logger
@@ -54,7 +58,7 @@ func Init(
         log.Ldate|log.Ltime|log.Lshortfile)
 }
 func init() {
-
+	activityLog.SetLogLevel(logger.InfoLevel)
 }
 
 // LogActivity is an Activity that is used to log a message to the console
@@ -99,6 +103,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 			context.ActivityHost().ID(), context.ActivityHost().Name(), context.Name())
 
 	color.Cyan(msg)
+	color.Cyan(activityLog.GetLogLevel())
 
 // 	logr.Info(msg)
 
