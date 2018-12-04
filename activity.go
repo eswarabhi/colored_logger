@@ -59,7 +59,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 
 	msg := message
 
-	msg = fmt.Sprintf("%s %s [%s] - '%s'", t.Format("2018-12-04 14:42:33.755"), level, context.Name(), msg)
+	msg = fmt.Sprintf("%s %s [%s] - '%s'", t.Format("2006-01-02 15:04:05"), level, context.Name(), msg)
 
 	switch level {
 	case S_level.Trace:
