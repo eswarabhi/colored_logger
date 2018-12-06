@@ -5,7 +5,7 @@
 
 ## Installation
 ### Flogo Web
-This activity is an extenstion to basic flogo activity, which will write colored logs, and the new addition is the log level must be sent as an input, to decide the output color of the log message.
+This activity is an extenstion to basic log flogo activity, which will write colored logs, and the new addition is the log level must be sent as an input, to decide the output color of the log message.
 ### Flogo CLI
 ```text
 flogo install github.com/eswarabhi/colored_logger
