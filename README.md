@@ -58,7 +58,7 @@ Below stated example will write "THIS IS AN ERROR!" in `red` color to console.
 ```json
       {
             "id": "colored_logger_6",
-            "name": "Colored Logger (5)",
+            "name": "Colored Logger",
             "description": "ea-Simple Log Activity",
             "activity": {
               "ref": "github.com/eswarabhi/colored_logger",
@@ -75,7 +75,7 @@ Below stated example will write "Find the trace" in `Cyan` color to console.
 ```json
           {
             "id": "colored_logger_7",
-            "name": "Colored Logger (6)",
+            "name": "Colored Logger",
             "description": "Activity that prints colored logs",
             "activity": {
               "ref": "github.com/eswarabhi/colored_logger",
