@@ -23,7 +23,7 @@
       "value": false
     },
     {
-      "name": "level",
+      "name": "logLevel",
       "type": "string",
       "required": true,
       "allowed" : ["Trace", "Debug", "Info", "Print", "Warn", "Error", "Fatal"]
