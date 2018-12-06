@@ -54,7 +54,7 @@ Inputs and Outputs:
 | level           | true          | ["Trace", "Debug", "Info", "Print","Warn", "Error", "Fatal"]| Allows us to set the log level manually|
 
 ## Examples
-Below stated example will write "THIS IS AN ERROR!" in red color to console.
+Below stated example will write "THIS IS AN ERROR!" in `red` color to console.
 ```json
       {
             "id": "colored_logger_6",
@@ -71,7 +71,7 @@ Below stated example will write "THIS IS AN ERROR!" in red color to console.
             }
         }
 ```
-Below stated example will write "Find the trace" in cyan color to console.
+Below stated example will write "Find the trace" in `Cyan` color to console.
 ```json
           {
             "id": "colored_logger_7",
