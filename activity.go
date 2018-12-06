@@ -18,7 +18,7 @@ const (
 	ivMessage   = "message"
 	ivFlowInfo  = "flowInfo"
 	ivAddToFlow = "addToFlow"
-	ivLevel = "level"
+	ivLogLevel = "logLevel"
 
 	ovMessage = "message"
 )
@@ -57,7 +57,7 @@ func (a *CLogActivity) Eval(context activity.Context) (done bool, err error) {
 	//mv := context.GetInput(ivMessage)
 	message, _ := context.GetInput(ivMessage).(string)
 	addToFlow, _ := toBool(context.GetInput(ivAddToFlow))
-	level, _ := context.GetInput(ivLevel).(string)
+	level, _ := context.GetInput(ivLogLevel).(string)
 
 	msg := message
 
