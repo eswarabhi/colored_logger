@@ -5,7 +5,7 @@
 
 ## Installation
 ### Flogo Web
-This activity comes out of the box with the Flogo Web UI
+This activity is an extenstion to basic flogo activity, which will write colored logs, and the new addition is the log level must be sent as an input, to decide the output color of the log message.
 ### Flogo CLI
 ```text
 flogo install github.com/eswarabhi/colored_logger
@@ -31,7 +31,7 @@ Inputs and Outputs:
       "value": false
     },
     {
-      "name": "level",
+      "name": "logLevel",
       "type": "string",
       "required": true,
       "allowed" : ["Trace", "Debug", "Info", "Print", "Warn", "Error", "Fatal"]
@@ -59,7 +59,7 @@ Below stated example will write "THIS IS AN ERROR!" in `red` color to console.
       {
             "id": "colored_logger_6",
             "name": "Colored Logger",
-            "description": "ea-Simple Log Activity",
+            "description": "Activity that prints colored logs",
             "activity": {
               "ref": "github.com/eswarabhi/colored_logger",
               "input": {
