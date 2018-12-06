@@ -1,11 +1,10 @@
 # Colored Logger
----
 > A log activity that will write colored logs to console. 
 
 ![Alt text](https://i.imgur.com/XxavNUc.png)
 
 ### Installation
----
+____
 ### Flogo Web
 This activity comes out of the box with the Flogo Web UI
 ### Flogo CLI
@@ -13,8 +12,8 @@ This activity comes out of the box with the Flogo Web UI
 flogo install github.com/eswarabhi/colored_logger
 ```
 
-Schema
----
+### Schema
+___
 Inputs and Outputs:
 ```json
 {
@@ -50,7 +49,7 @@ Inputs and Outputs:
 }
 ```
 ### Settings
----
+___
 | Setting         | Required      | Allowed Values  | Description |
 | :-------------: |:-------------:| :---------------| ------------|
 | message         | false         | string          |The message to log|
@@ -58,7 +57,7 @@ Inputs and Outputs:
 | addToFlow       | false         | boolean         |If set to true this will add the log message to the 'message' output of the activity and make it available in further activities|
 | level           | true          | ["Trace", "Debug", "Info", "Print","Warn", "Error", "Fatal"]| Allows us to set the log level manually|
 ### Examples
----
+___
 Below stated example will write "THIS IS AN ERROR!" in red color to console.
 ```json
       {
