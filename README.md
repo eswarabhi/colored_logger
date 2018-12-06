@@ -3,9 +3,9 @@
 
 ![Alt text](https://i.imgur.com/XxavNUc.png)
 ___
-Installation
+### Installation
 ___
-# Flogo CLI
+### Flogo CLI
 ```text
 flogo install github.com/eswarabhi/colored_logger
 ```
