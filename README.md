@@ -3,17 +3,14 @@
 
 ![Alt text](https://i.imgur.com/XxavNUc.png)
 
-### Installation
-____
+## Installation
 ### Flogo Web
 This activity comes out of the box with the Flogo Web UI
 ### Flogo CLI
 ```text
 flogo install github.com/eswarabhi/colored_logger
 ```
-
-### Schema
-___
+## Schema
 Inputs and Outputs:
 ```json
 {
@@ -48,16 +45,15 @@ Inputs and Outputs:
   ]
 }
 ```
-### Settings
-___
+## Settings
 | Setting         | Required      | Allowed Values  | Description |
 | :-------------: |:-------------:| :---------------| ------------|
 | message         | false         | string          |The message to log|
 | flowInfo        | false         | boolean         |If set to true this will append the flow information to the log message|
 | addToFlow       | false         | boolean         |If set to true this will add the log message to the 'message' output of the activity and make it available in further activities|
 | level           | true          | ["Trace", "Debug", "Info", "Print","Warn", "Error", "Fatal"]| Allows us to set the log level manually|
-### Examples
-___
+
+## Examples
 Below stated example will write "THIS IS AN ERROR!" in red color to console.
 ```json
       {
